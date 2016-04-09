@@ -1,9 +1,10 @@
-# Syncing with Upstream
-## Add Upstream Remote
+# Managing Your Fork
+## Syncing with Upstream
+### Add Upstream Remote
 `git remote add upstream git://github.com/bazzinotti/github-tutorial.git`
-## Have Your Local Master Branch Track upstream/master
+### Have Your Local Master Branch Track upstream/master
 `git branch master -u upstream/master`
-## Syncing Your Fork
+### Syncing Your Fork
 
 First you must sync to your local machine. You ought do this before branching a new feature request.
 
@@ -18,6 +19,9 @@ If you _did_ get updates, you should push these local updates to your remote for
 
 `git push origin` pushes the local update to your fork's remote master branch on (ie. Github).
 
+## Pull Request
+See this [recorded livestream](https://www.youtube.com/watch?v=wFck6txFeck&t=26m42s)
+
 # Check Remote Tracking for All Branches
 ```
 $ gitb -vv
@@ -25,8 +29,7 @@ $ gitb -vv
   b      8af3e75 [origin/b] [b] did a thing again
 * master 8527a00 [upstream/master] derp
 ```
-# Pull Request
-See this [recorded livestream](https://www.youtube.com/watch?v=wFck6txFeck&t=26m42s)
+
 # Undoing a commit
 `git reset HEAD~1` Where 1 is the number of commits to remove.
 
