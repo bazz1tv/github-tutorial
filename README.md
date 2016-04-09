@@ -44,7 +44,7 @@ git status
 Follow the advice printed from the status command (it varies). There may not be anything to update. You will probably be told to `git pull` if there are updates.
 
 #### Push to Remote
-`git push origin` pushes the local update to your fork's remote master branch (ie. on Github). 
+`git push origin` pushes the local updates received to your fork's remote master branch (ie. on Github). In this case, you cannot just use `git push` since it will try to push to the "master repo" by default. This is due to our previous tweak of having our local master branch track upstream/master rather than origin/master.
 
 
 ## Creating a New Branch
