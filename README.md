@@ -1,6 +1,6 @@
 # Managing Your Fork
 
-Follow these instructions after you've forked this repository, and cloned your forked repo to your local PC (eg by using `git clone` with the cloning URL specified on your fork project page). Run the commands below from *somewhere* inside the local repo directory.
+Follow these instructions after you've forked this repository by pressing the "fork" button near the top-right of this browser page, and cloned your forked repo to your local PC (eg by using `git clone` with the cloning URL specified on your forked project page). Run the commands below from *somewhere* inside your local repo directory.
 
 Note: When you clone a git repo, it is automatically associated with where you downloaded it from. This is through an actual git device called a "remote". Remotes are primarily used as simple labels for a complex GIT repo URL. The automatic remote you get when you clone a repo is called "origin". In this case, it will refer to your Github fork remote repo.
 
