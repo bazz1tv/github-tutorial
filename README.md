@@ -49,7 +49,7 @@ Follow the advice printed from the status command (it varies). There may not be 
 
 ## Creating a New Branch
 
-This is what you'll do when you want to fix bug(s) or add a feature to the project. ALWAYS create a branch FROM the master (while the master is the active branch). See [Syncing your Fork](#Syncing Your Fork) for details on checking out the master branch.
+This is what you'll do when you want to fix bug(s) or add a feature to the project. ALWAYS create a branch FROM the master (while the master is the active branch). See [Checkout the Master Branch](#checkout-the-master-branch) for details on checking out the master branch.
 
 `git checkout -b branchname` will create the new branch and make it the active branch.
 
