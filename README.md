@@ -21,7 +21,7 @@ To follow the rest of the tutorial, you must run the commands below from *somewh
 
 ## Syncing Upstream
 
-You will need to routinely synchronize the master branch of your fork with the main project repo ("upstream repo, master repo"). Here is how you can do that.
+You will need to routinely synchronize the master branch of your fork with upstream's master branch. Here is how you can do that.
 
 ### Add Upstream Remote
 
@@ -35,7 +35,7 @@ _Note_: Get repo URL from the upstream project page (not your fork).
  
 ### Have Your Local Master Branch Track upstream/master
 
-Since we will not be making changes directly to your fork's master branch (remember we want it only to be a copy of upsteam's master branch) - we will make your local master branch track upstream's master branch (instead of your fork's master branch)
+Since we will not be making changes directly to your fork's master branch (remember we want it only to be a copy of upsteam's master branch) - we will make your local master branch track upstream's master branch.
 
 `git branch master -u upstream/master`
 
@@ -48,7 +48,7 @@ You won't need to do this immediately after cloning your repo. But generally, if
 #### Checkout the Master Branch
 A typical behavior you should follow is to make sure you're in your master branch by typing `git branch` -- there will be an asterisk next to the active branch. If the master is not the active branch, then `git checkout master`. 
 
-_Note_: If your local repo has uncommitted changes at this point in time, you will need to either finish committing them, or you may temporarily `git stash` them before checking out the master branch. You can later `git stash apply` to bring them back.
+_Note_: If you are already working in a new branch, and your local repo has uncommitted changes at this point in time, you will need to either finish committing them, or you may temporarily `git stash` them before checking out the master branch. You can later `git stash apply` to bring the changes back.
 
 #### Fetch/Status/Pull
 Now we are ready to sync to your local machine. You ought do this every time before creating a new branch (which will be based on the master). Do the following commands while inside your **master** branch.
@@ -68,18 +68,19 @@ Follow the advice printed from the status command (it varies). There may not be 
 
 This is what you'll do when you want to fix bug(s) or add a feature to the project. ALWAYS create a branch FROM the master (while the master is the active branch). See [Checkout the Master Branch](#checkout-the-master-branch) for details on checking out the master branch.
 
-`git checkout -b branchname` will create the new branch and make it the active branch.
+`git checkout -b [branchname]` will create the new branch and make it the active branch.
 
 You can now do work, add files, commit them as normal.
 
-When you're ready to push your progress to your fork remote repo for the first time, you must also create the remote branch with some extra arguments to the push. `git push -u origin branchname`
+When you're ready to push your progress to your fork remote repo for the first time, you must also create the remote branch with some extra arguments to the push. `git push -u origin [branchname]`
 
 All subsequent pushes can just use `git push` 
 
 ## Pull Request
 See this [recorded livestream](https://www.youtube.com/watch?v=wFck6txFeck&t=26m42s)
 
-# Check Remote Tracking for All Branches
+# Miscellaneous Advice
+## Check Remote Tracking for All Branches
 ```
 $ gitb -vv
   a      cabf6d8 [origin/a] [a] w capitalized
@@ -87,18 +88,18 @@ $ gitb -vv
 * master 8527a00 [upstream/master] derp
 ```
 
-# Undoing a commit
+## Undoing a commit
 `git reset HEAD~1` Where 1 is the number of commits to remove.
 
 Alternatively, you can use a commit hash to reset to (a hash could be obtained from `git log`)
 
 Normally, a reset to another commit will retain any added files or file modifications that were present. If you desire to remove these changes automatically, you add the `--hard` flag, ie `git reset --hard HEAD~`
 
-# Rephrasing Commits
+## Rephrasing Commits
 
-## Most Recent Commit
+### Most Recent Commit
 `git commit --amend`
-## Several Commits
+### Several Commits
 `git rebase -i HEAD~5` 
 
 In this example, `HEAD~5` specifies the bottom-most commit (5 past commits), which combined with the HEAD will provide a range of commits from which to work with.
