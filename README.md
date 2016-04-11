@@ -1,28 +1,45 @@
+This tutorial is geared towards someone wanting to contribute pull requests to official project repositories, and stay synchronized with the official project through time.
+
+I assume you already have git installed.
+
 # Managing Your Fork
 
-Follow these instructions after you've forked this repository by pressing the "fork" button near the top-right of this browser page, and cloned your forked repo to your local PC (eg by using `git clone` with the cloning URL specified on your forked project page). Run the commands below from *somewhere* inside your local repo directory.
+## The Workflow
 
-Note: When you clone a git repo, it is automatically associated with where you downloaded it from. This is through an actual git device called a "remote". Remotes are primarily used as simple labels for a complex GIT repo URL. The automatic remote you get when you clone a repo is called "origin". In this case, it will refer to your Github fork remote repo.
+The general idea is that you will fork your own repo from the main project repo. You will maintain your master branch as a "synchronization branch" that will always reflect the state of your target project's master branch. When you want to make a change, you create a new branch **from** the master branch; do all your commits (occasionally pushing to github to have a remote backup of your commits is nice); create a pull request through Github.
+
+## Fork and Clone
+First, fork this repository by pressing the "fork" button near the top-right of this browser page.
+
+Now, clone your forked repo to your local PC (eg in the terminal by using `git clone` with the cloning URL specified on your forked project page. The cloning URL is in a text box near the"Download Zip" button). An example of a proper clone command: `git clone git@github.com:bazzinotti/github-tutorial.git`
+
+When you clone a git repo, it automatically associates with where you downloaded it from (origin). This is through a git device called a "remote." Remotes are primarily used as simple labels for GIT repo URLs. The automatic remote you get when you clone a repo is called "origin". In this case, it will refer to your Github fork remote repo.
+
+So now that you've forked the main repo, and cloned it to your local machine, there are 3 repos total. The "Upstream" repo (main project, remote, on Github), your fork (remote, on Github), and your clone (local, on your filesystem).
+
+To follow the rest of the tutorial, you must run the commands below from *somewhere* inside your local repo directory.
 
 ## Syncing Upstream
 
-You will need to routinely make sure your local repo (and remote fork) are consistent with the progress being made on the main project. Here is how you can do that.
+You will need to routinely synchronize the master branch of your fork with the main project repo ("upstream repo, master repo"). Here is how you can do that.
 
 ### Add Upstream Remote
 
 You only need to do this once.
 
-Let's add a remote to your local repo. It refers to the project's original remote repository (not your remote fork). We'll label it "upstream"
+Let's add a remote to the upstream repo.
 
 `git remote add upstream git://github.com/bazzinotti/github-tutorial.git`
 
-_Note_: We could nitpick how I obtained the repo URL, or the protocol used (git://) -- but I am too tired at this point.
+_Note_: Get repo URL from the upstream project page (not your fork).
  
 ### Have Your Local Master Branch Track upstream/master
 
-Since you are discouraged from making any changes to your fork's master branch - we will make your local master branch be directly tracked from the original repo's master branch (instead of your fork's)
+Since we will not be making changes directly to your fork's master branch (remember we want it only to be a copy of upsteam's master branch) - we will make your local master branch track upstream's master branch (instead of your fork's master branch)
 
 `git branch master -u upstream/master`
+
+Note: normally your local master branch would track origin/master
 
 ### Syncing Your Fork
 
@@ -44,7 +61,7 @@ git status
 Follow the advice printed from the status command (it varies). There may not be anything to update. You will probably be told to `git pull` if there are updates.
 
 #### Push to Remote
-`git push origin` pushes the local updates received to your fork's remote master branch (ie. on Github). In this case, you cannot just use `git push` since it will try to push to the "master repo" by default. This is due to our previous tweak of having our local master branch track upstream/master rather than origin/master.
+`git push origin` pushes the local updates to your fork's remote master branch (ie. on Github). In this case, you cannot just use `git push` since it will try to push to the "master repo" by default. This is due to our previous tweak of having our local master branch track upstream/master rather than origin/master.
 
 
 ## Creating a New Branch
@@ -93,3 +110,5 @@ You can alternatively use a commit hash to specify the bottom commit of the comm
 # Advanced Remarks
 
 It's probably a good idea to have your fork master branch mirroring the original repo master branch, but it seems completely unnecessary. In fact, your local master branch alone is all that's required. But removing the remote master branch is a nuisance and requires another remote branch having been made, and is therefore discouraged for beginner users. That and, if anything _were_ to happen to the "master repo," at least you would have a copy in the fork if you maintained the remote master branch.
+
+The design changes if the main-repo branch you want to target is not the master branch -- in that case just make a new (or switch to the) branch locally and have it track upstream's branch using similar commands as taught here, eg `git branch branchname -u upstream/branchname` and remember you can push it to your fork-remote with `push origin`. Remember to make new branches from the `branchname` branch for this kind of work! (not your master branch)
