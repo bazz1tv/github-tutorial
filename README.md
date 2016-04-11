@@ -82,7 +82,7 @@ See this [recorded livestream](https://www.youtube.com/watch?v=wFck6txFeck&t=26m
 # Miscellaneous Advice
 ## Check Remote Tracking for All Branches
 ```
-$ gitb -vv
+$ git branch -vv
   a      cabf6d8 [origin/a] [a] w capitalized
   b      8af3e75 [origin/b] [b] did a thing again
 * master 8527a00 [upstream/master] derp
