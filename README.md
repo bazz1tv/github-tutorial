@@ -31,6 +31,8 @@ Let's add a remote to the upstream repo.
 
 `git remote add upstream git://github.com/bazzinotti/github-tutorial.git`
 
+`git fetch upstream` -- this gets the remote branch info at least
+
 _Note_: Get repo URL from the upstream project page (not your fork).
  
 ### Have Your Local Master Branch Track upstream/master
